@@ -1,30 +1,13 @@
-import smallSizeImage from './assets/small-image.png';
-import normalSizeImage from './assets/normal-image.png';
-import bigSizeImage from './assets/big-image.png';
-
-let result = [1, 2, 3].map((n) => n + 1);
-
-let smallSizeImageElement=document.createElement(('img'));
-smallSizeImageElement.src=smallSizeImage;
-document.body.appendChild(smallSizeImageElement)
-
-let normalSizeImageElement=document.createElement(('img'));
-normalSizeImageElement.src=normalSizeImage;
-document.body.appendChild(normalSizeImageElement)
-
-let bigSizeImageElement=document.createElement(('img'));
-bigSizeImageElement.src=bigSizeImage;
-document.body.appendChild(bigSizeImageElement)
-
-console.log('====================================');
-console.log(123);
-console.log('====================================');
-
-let opso = ()=>{
-    console.log('====================================');
-    console.log(456);
-    console.log('====================================');
+if (process.env.NODE_ENV !== 'production') {
+ console.log('！！！开发模式开启！！！');
 }
 
-opso()
+var app = angular.module('ykd_wx',['ionic']);
+app
+  .run()
+  .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider',($stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
+    $urlRouterProvider.otherwise('login123');
+    console.log(123);
+  }])
+
 require('./app.css')
