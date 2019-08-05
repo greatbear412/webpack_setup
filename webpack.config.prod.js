@@ -24,10 +24,12 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
                 use: {
+                    // babel + ng-annotate的配置在.babelrc
+                    // 在要inject的function里第一句加 'ngInject';
                     loader: "babel-loader",
                     options: {
                         presets: ["@babel/preset-env"]
-                    }
+                    }  
                 }
             },
             {
@@ -66,10 +68,10 @@ module.exports = {
                             interlaced: false
                         }
                     }
-                }]
-            }
-        ]
-    },
+                }
+            ]
+        }
+    ]},
     // 避免在生产中使用 inline-*** 和 eval-***，因为它们可以增加 bundle 大小，并降低整体性能。
     // 因此 : - inline-source-map  + source-map
     devtool: 'source-map',

@@ -5,9 +5,15 @@ if (process.env.NODE_ENV !== 'production') {
 var app = angular.module('ykd_wx',['ionic']);
 app
   .run()
-  .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider',($stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
-    $urlRouterProvider.otherwise('login123');
-    console.log(123);
+  .config(['$stateProvider', '$urlRouterProvider',($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('index');
+    $stateProvider
+    .state('index', {
+      url: '/index',
+      cache: false,
+      template: require('./page/home/home.html')
+      // controller: require('./page/home/homeController')
+    })
   }])
 
 require('./app.css')
