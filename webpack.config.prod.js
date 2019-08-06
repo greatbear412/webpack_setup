@@ -44,11 +44,19 @@ module.exports = {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
                   {
-                      loader: 'file-loader',
-                      options: {
-                          name:'[name].[ext]',
-                          outputPath: 'img'
-                      }
+                    // 小于limit的转base64，反之执行file-loader
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8*1024
+                        // limit: 1,
+                        name:'[name].[ext]',
+                        outputPath: 'img'
+                    }
+                    //   loader: 'file-loader',
+                    //   options: {
+                    //       name:'[name].[ext]',
+                    //       outputPath: 'img'
+                    //   }
                   },
                   {
                     loader: 'image-webpack-loader',
