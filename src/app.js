@@ -11,8 +11,8 @@ app
     .state('index', {
       url: '/index',
       cache: false,
-      template: require('./page/home/home.html')
-      // controller: require('./page/home/homeController')
+      template: require('./page/home/home.html'),
+      controller: require('./page/home/homeController')
     })
   }])
 

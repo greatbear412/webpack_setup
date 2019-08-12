@@ -47,10 +47,10 @@ module.exports = {
                     // 小于limit的转base64，反之执行file-loader
                     loader: 'url-loader',
                     options: {
-                        limit: 8*1024
+                        limit: 8*1024,
                         // limit: 1,
-                        name:'[name].[ext]',
-                        outputPath: 'img'
+                        name:'[path]/[name].[ext]'
+                        // outputPath: 'img'
                     }
                     //   loader: 'file-loader',
                     //   options: {

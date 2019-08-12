@@ -3,6 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require("webpack-dashboard/plugin");
+var dashboard = new Dashboard();
 
 // 热更新插件，配合dev-server开始hot
 new webpack.HotModuleReplacementPlugin();
@@ -23,9 +26,10 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         host: 'localhost',      // 默认是localhost
-        port: 8000,             // 端口
+        port: 8080,             // 端口
         open: true,             // 自动打开浏览器
-        hot: true               // 开启热更新
+        hot: true,              // 开启热更新
+        quiet: true             // lets WebpackDashboard do its job
     },
     module: {
         rules: [{
@@ -91,7 +95,9 @@ module.exports = {
             hash: true,
             template: './src/index.html',
             filename: 'index.html' //relative to root of the application
-        })
+        }),
+        // 输出样式增强
+        new DashboardPlugin(dashboard.setData)
     ]
 
 };
