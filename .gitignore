@@ -1,0 +1,21 @@
+# Build and Release Folders
+bootstrap-sass-master/
+bower_components/
+dest/
+dist/
+node_modules/
+.idea/
+gulpfile1.js
+package-lock.json
+widthAuto.js
+all.min.js
+app/angular-cookies/package.json
+app/statics/
+update/
+
+# Other files and folders
+.settings/
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
